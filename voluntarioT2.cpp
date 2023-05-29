@@ -218,7 +218,7 @@ Correlac=fopen("Correlacion", "a");
 
 }
 magn=magn/media;
-fprintf(Magnet,"%lf\t%lf\n", T, magn);
+
 
 
 //printf("Mag=%lf\t", magn);
@@ -226,7 +226,7 @@ fprintf(Magnet,"%lf\t%lf\n", T, magn);
 
 sumaE=sumaE/media;
 //printf("E=%lf\t", sumaE/(2*N));
-fprintf(es,"%lf\t%lf\n", T,sumaE/(2*N));
+
 
 Ecuad=Ecuad/media;
 //printf("Ec=%lf\t", Ecuad);
@@ -235,17 +235,19 @@ difE=Ecuad-pow(sumaE,2);
 
 Cn=difE/(N*N*T);
 //printf("Cn=%lf\t", Cn);
-fprintf(Capcal,"%lf\t%lf\n", T, Cn);
+
 
 correl=correl/(media);
 //printf("F=%lf\t", correl);
-fprintf(Correlac,"%lf\t%lf\n", T, correl);
 
-fclose(Magnet);
-fclose(es);
-fclose(Capcal);
-fclose(Correlac);
-
+FILE* archivo = fopen("datosvoluntario.txt", "a");
+fprintf(archivo, "T=%lf,",T );
+fprintf(archivo, "N=%d,",N );
+fprintf(archivo,"mN= %lf,", magn);
+fprintf(archivo, "en= %lf," ,sumaE/(2*N));
+fprintf(archivo,"cn=%lf,",Cn);
+fprintf(archivo, "correl=%lf\n", correl);
+fclose(archivo); 
 
 
 T=T+0.2;
