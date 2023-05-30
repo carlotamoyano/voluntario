@@ -90,7 +90,8 @@ int main(){
     T=1.5;
     int spines[N][N];
     int random;
-    int f, c, h, media, aux1,aux2,aux3,aux4;
+    long h;
+    int f, c, media, aux1,aux2,aux3,aux4;
     double VEnergia, sumaE, Ecuad,Cn, correl, difE, E;
     double exponencial, p, epsilon;
     double magn=0.0;
