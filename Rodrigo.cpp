@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include "gsl_rng.h"
 #include <iostream>
-#define N 16 
+#define N 64
 
 gsl_rng *tau;
 
