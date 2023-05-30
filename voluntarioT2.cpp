@@ -86,7 +86,7 @@ double correlacion(int spines[N][N], int a){
 int main(){
     
     double T;
-    int rep=N*N*1000000;
+    long rep=N*N*1000000;
     T=1.5;
     int spines[N][N];
     int random;
