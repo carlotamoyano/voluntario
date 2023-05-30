@@ -3,7 +3,7 @@
 #include <time.h>
 # include "gsl_rng.h" //Libreria para generación de números aleatorios
 
-#define N 16
+#define N 32
 
 gsl_rng *tau;
 
@@ -134,12 +134,6 @@ FILE* es;
 FILE* Capcal;
 FILE* Correlac;
 
-
-
-Magnet=fopen("Magnet", "a");
-es=fopen("Energiamatriz", "a");
-Capcal=fopen("Capcal", "a");
-Correlac=fopen("Correlacion", "a");
 
 
 
