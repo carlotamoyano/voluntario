@@ -3,7 +3,7 @@
 #include <time.h>
 # include "gsl_rng.h" //Libreria para generación de números aleatorios
 
-#define N 32
+#define N 16
 
 gsl_rng *tau;
 
@@ -111,7 +111,7 @@ int main(){
     int a=5;
     //escribir la matriz
     //diferencia de energia
-    for (int z = 0; z < 10; z++)
+    for (int z = 0; z < 11; z++)
     {
         
     
