@@ -3,7 +3,7 @@
 #include <time.h>
 # include "gsl_rng.h" //Libreria para generación de números aleatorios
 
-#define N 32
+#define N 64
 
 gsl_rng *tau;
 
