@@ -3,17 +3,17 @@
 #include <time.h>
 # include "gsl_rng.h" //Libreria para generación de números aleatorios
 
-#define N 64
+#define N 128
 
 gsl_rng *tau;
 
-double Magnetización(int spines[N][N]){
+double Magnetización(int matriz[N][N]){
     double suma=0.0;
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
         {
-            suma=suma+spines[i][j];
+            suma=suma+matriz[i][j];
         }
         
     }
@@ -21,7 +21,7 @@ double Magnetización(int spines[N][N]){
 }
 
 
-double Energia(int spines[N][N])
+double Energia(int matriz[N][N])
 {
     double E;
     E=0;
@@ -51,7 +51,7 @@ double Energia(int spines[N][N])
                 aux2=N-1;
             }
             
-            E = E + spines[i][j] * (spines[i][aux1] + spines[i][aux2] + spines[aux3][j] + spines[aux4][j]);
+            E = E + matriz[i][j] * (matriz[i][aux1] + matriz[i][aux2] + matriz[aux3][j] + matriz[aux4][j]);
 
 
 
@@ -61,7 +61,7 @@ double Energia(int spines[N][N])
     return -0.5*E;
 }
 
-double correlacion(int spines[N][N], int a){
+double correlacion(int matriz[N][N], int a){
     double suma=0.0;
     for (int i = 0; i < N; i++)
     {
@@ -69,11 +69,11 @@ double correlacion(int spines[N][N], int a){
         {
              if(i<N-a)
              {
-                suma=suma+spines[i][j]*spines[i+a][j];
+                suma=suma+matriz[i][j]*matriz[i+a][j];
              }
             else
             {
-                suma=suma+spines[i][j]*spines[i+a-N][j];
+                suma=suma+matriz[i][j]*matriz[i+a-N][j];
             }
             
         }
@@ -88,7 +88,7 @@ int main(){
     double T;
     double rep=(double)N*N*1000000;
     T=1.5;
-    int spines[N][N];
+    int matriz[N][N];
     int random;
     long h;
     int f, c, media, aux1,aux2,aux3,aux4;
@@ -121,14 +121,14 @@ int main(){
     {
         for (int j = 0; j< N; j++)
         {
-            spines[i][j]=1;
+            matriz[i][j]=1;
             
             
         }
         //
     }
 
-printf("%lf\t", Energia(spines));
+printf("%lf\t", Energia(matriz));
 
 FILE* Magnet;
 FILE* es;
@@ -167,7 +167,7 @@ FILE* Correlac;
         aux4=N-1;
     }
     
-    VEnergia=2.0 * spines[f][c] * (spines[aux1][c]+spines[aux2][c]+spines[f][aux3]+spines[f][aux4]);
+    VEnergia=2.0 * matriz[f][c] * (matriz[aux1][c]+matriz[aux2][c]+matriz[f][aux3]+matriz[f][aux4]);
 
 
 
@@ -190,7 +190,7 @@ FILE* Correlac;
    //si es menor lo cambiamos
    if (epsilon<p)
    {
-    spines[f][c]=-1*spines[f][c];
+    matriz[f][c]=-1*matriz[f][c];
    }
    
    //hace lo que debas
@@ -198,11 +198,11 @@ FILE* Correlac;
     if (h==100*N*N)
     {
         
-        magn=magn+Magnetización(spines); 
-        E=Energia(spines);
+        magn=magn+Magnetización(matriz); 
+        E=Energia(matriz);
         sumaE=sumaE+E;
         Ecuad=Ecuad+E*E;
-        correl=correl+correlacion(spines, a);
+        correl=correl+correlacion(matriz, a);
         media=media+1;
         h=0;
     }
