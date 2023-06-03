@@ -124,7 +124,7 @@ for (int k=0;k<10;k++){
 
 
     //evolucion de la matriz
-    for (int a=0; a<1000000*N*N;a++)
+    for (double a=0; a<1000000*N*N;a++)
     {
         int n=gsl_rng_uniform_int(tau,N);
         int m=gsl_rng_uniform_int(tau,N);
