@@ -102,10 +102,7 @@ int main(){
     double scn;
     double scorrel;
     double w, sen;
-    double mag[media];
-    double ener[media];
-    double ener2[media];
-    double fi[media];
+
      
     extern gsl_rng *tau; //Puntero al estado del número aleatorio
     int semilla=135254; //Semilla del generador de números aleatorios
@@ -125,7 +122,10 @@ int main(){
     //diferencia de energia
     for (int z = 0; z < 11; z++)
     {
-        
+    double mag[10000];
+    double ener[10000];
+    double ener2[10000];
+    double fi[10000];
     
     
     for (int i = 0; i < N; i++)
