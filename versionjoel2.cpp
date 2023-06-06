@@ -94,15 +94,19 @@ int main(){
     int f, c, media, aux1,aux2,aux3,aux4;
     double VEnergia, sumaE, E2,Cn, correl, difE, E;
     double exponencial, p, epsilon;
-    double magn=0.0;
+    double mn=0.0;
 
     double smn;
     double sE;
     double sE2;
-    double sE;
     double scn;
     double scorrel;
-
+    double w, sen;
+    double mag[10000];
+    double ener[10000];
+    double ener2[10000];
+    double f[10000];
+     
     extern gsl_rng *tau; //Puntero al estado del número aleatorio
     int semilla=135254; //Semilla del generador de números aleatorios
     
@@ -213,12 +217,12 @@ FILE* Correlac;
         media=media+1;
        
 
-        mag[w]=Magnetizacion(matriz);
+        mag[w]=Magnetización(matriz);
         ener[w]=Energia(matriz);
         f[w]=correlacion(matriz,a);
-        ener2[W]=Magnetizacion(matriz)*Magnetizacion(matriz);
+        ener2[w]=Magnetización(matriz)*Magnetización(matriz);
          
-        w=w+1 
+        w=w+1;
         h=0;
     }
      else
@@ -275,7 +279,7 @@ fprintf(archivo, "correl=%lf\n", correl);
 
     sen=sE/(2*N);
     scn=scn/10000;
-fprint(archivo, "smn= %lf,", smn);
+fprintf(archivo, "smn= %lf,", smn);
 fprintf(archivo, "sen= %lf,", sen);
 fprintf(archivo, "scn= %lf,", scn);
 fprintf(archivo, "scorrel= %lf,", scorrel);
