@@ -102,10 +102,10 @@ int main(){
     double scn;
     double scorrel;
     double w, sen;
-    double mag[10000];
-    double ener[10000];
-    double ener2[10000];
-    double fi[10000];
+    double mag[1007];
+    double ener[1007];
+    double ener2[1007];
+    double fi[1007];
      
     extern gsl_rng *tau; //Puntero al estado del número aleatorio
     int semilla=135254; //Semilla del generador de números aleatorios
