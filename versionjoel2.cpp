@@ -216,12 +216,11 @@ FILE* Correlac;
         correl=correl+correlacion(matriz, a);
         media=media+1;
        
-
         mag[w]=Magnetización(matriz);
         ener[w]=Energia(matriz);
         fi[w]=correlacion(matriz,a);
         ener2[w]=Magnetización(matriz)*Magnetización(matriz);
-         
+        snm=correlacion(matriz,a)+snm; 
         w=w+1;
         h=0;
     }
@@ -250,7 +249,7 @@ difE=E2-pow(sumaE,2);
 Cn=difE/(N*N*T);
 //printf("Cn=%lf\t", Cn);
 
-
+double mediasnm=snm/10000;
 correl=correl/(media);
 //printf("F=%lf\t", correl);
 
@@ -268,7 +267,7 @@ fprintf(archivo, "correl=%lf\n", correl);
         smn=(mag[i]-mn)*(mag[i]-mn)+smn;
         sE=(ener[i]-sumaE)*(ener[i]-sumaE)+sE;
         sE2=(ener2[i]-E2)*(ener2[i]-E2)+sE2;
-        scorrel=(fi[i]-correl)*(f[i]-correl)+scorrel;
+        scorrel=(fi[i]-mediasnm)*(f[i]-mediasnm)+scorrel;
         scn=scn+((ener2[i]-ener[i]*ener[i])/(N*N*T)-(E2-(sumaE*sumaE))/(N*N*T))*((ener2[i]-ener[i]*ener[i])/(N*N*T)-(E2-(sumaE*sumaE))/(N*N*T));
     }
 
