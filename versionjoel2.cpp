@@ -267,7 +267,7 @@ fprintf(archivo, "correl=%lf\n", correl);
         smn=(mag[i]-mn)*(mag[i]-mn)+smn;
         sE=(ener[i]-sumaE)*(ener[i]-sumaE)+sE;
         sE2=(ener2[i]-E2)*(ener2[i]-E2)+sE2;
-        scorrel=(fi[i]-mediasnm)*(f[i]-mediasnm)+scorrel;
+        scorrel=(fi[i]-mediasnm)*(fi[i]-mediasnm)+scorrel;
         scn=scn+((ener2[i]-ener[i]*ener[i])/(N*N*T)-(E2-(sumaE*sumaE))/(N*N*T))*((ener2[i]-ener[i]*ener[i])/(N*N*T)-(E2-(sumaE*sumaE))/(N*N*T));
     }
 
