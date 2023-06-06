@@ -95,7 +95,7 @@ int main(){
     double VEnergia, sumaE, E2,Cn, correl, difE, E;
     double exponencial, p, epsilon;
     double mn=0.0;
-
+    double snm=0.0
     double smn;
     double sE;
     double sE2;
