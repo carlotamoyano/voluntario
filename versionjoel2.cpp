@@ -286,7 +286,7 @@ fprintf(archivo, "scorrel= %lf,", scorrel);
 
 
 fclose(archivo); 
-w=0
+w=0;
 T=T+0.2;
     }
 
