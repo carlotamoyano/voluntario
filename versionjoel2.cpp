@@ -101,7 +101,8 @@ int main(){
     double sE2;
     double scn;
     double scorrel;
-    double w, sen;
+    double sen;
+    int w;
 
      
     extern gsl_rng *tau; //Puntero al estado del número aleatorio
@@ -122,10 +123,10 @@ int main(){
     //diferencia de energia
     for (int z = 0; z < 11; z++)
     {
-    double mag[10000];
-    double ener[10000];
-    double ener2[10000];
-    double fi[10000];
+    double mag[10007];
+    double ener[10007];
+    double ener2[10007];
+    double fi[10007];
     
     
     for (int i = 0; i < N; i++)
@@ -285,7 +286,7 @@ fprintf(archivo, "scorrel= %lf,", scorrel);
 
 
 fclose(archivo); 
-
+w=0
 T=T+0.2;
     }
 
