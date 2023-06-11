@@ -127,7 +127,7 @@ int main(){
     double ener[10007];
     double ener2[10007];
     double fi[10007];
-    
+    smn=0.0;
     
     for (int i = 0; i < N; i++)
     {
