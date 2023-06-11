@@ -128,6 +128,9 @@ int main(){
     double ener2[10007];
     double fi[10007];
     smn=0.0;
+    E=0.0;
+    E2=0.0;
+    sumaE=0;
     
     for (int i = 0; i < N; i++)
     {
