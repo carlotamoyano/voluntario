@@ -285,7 +285,7 @@ fprintf(archivo, "correl=%lf\n", correl);
 fprintf(archivo, "smn= %lf,", smn);
 fprintf(archivo, "sen= %lf,", sen);
 fprintf(archivo, "scn= %lf,", scn);
-fprintf(archivo, "scorrel= %lf,", scorrel);
+fprintf(archivo, "scorrel= %lf\n", scorrel);
 
 
 fclose(archivo); 
