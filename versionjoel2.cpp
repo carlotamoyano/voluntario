@@ -85,9 +85,23 @@ double correlacion(int matriz[N][N], int a){
 
 int main(){
     
-    double T;
-    double rep=(double)N*N*1000000;
+   double T;
     T=1.5;
+    extern gsl_rng *tau; //Puntero al estado del número aleatorio
+    int semilla=135254; //Semilla del generador de números aleatorios
+
+    tau=gsl_rng_alloc(gsl_rng_taus); //Inicializamos el puntero
+    gsl_rng_set(tau,semilla); //Inicializamos la semilla
+    int a=5;
+    //escribir la matriz
+    //diferencia de energia
+    
+    for (int z = 0; z < 11; z++)
+    {
+
+    
+    double rep=(double)N*N*1000000;
+    
     int matriz[N][N];
     int random;
     long h;
@@ -104,25 +118,6 @@ int main(){
     double sen;
     int w;
 
-     
-    extern gsl_rng *tau; //Puntero al estado del número aleatorio
-    int semilla=135254; //Semilla del generador de números aleatorios
-    
-    
-    tau=gsl_rng_alloc(gsl_rng_taus); //Inicializamos el puntero
-    gsl_rng_set(tau,semilla); //Inicializamos la semilla
-
-    sumaE=0.0;
-    E=0.0;
-    h=0;
-    E2=0.0;
-    media=0.0;
-    correl=0.0;
-    int a=5;
-    //escribir la matriz
-    //diferencia de energia
-    for (int z = 0; z < 11; z++)
-    {
     double mag[10007];
     double ener[10007];
     double ener2[10007];
@@ -282,10 +277,10 @@ fprintf(archivo, "correl=%lf\n", correl);
 
     sen=sE/(2*N);
     scn=scn/10000;
-fprintf(archivo, "smn= %lf,", smn);
-fprintf(archivo, "sen= %lf,", sen);
-fprintf(archivo, "scn= %lf,", scn);
-fprintf(archivo, "scorrel= %lf\n", scorrel);
+fprintf(archivo, "smn= %lf,", pow(smn,0.5));
+fprintf(archivo, "sen= %lf,", pow(sen,0.5));
+fprintf(archivo, "scn= %lf,", pow(scn,0.5));
+fprintf(archivo, "scorrel= %lf\n", pow(scorrel,0.5));
 
 
 fclose(archivo); 
